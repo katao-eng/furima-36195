@@ -14,5 +14,5 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
   validates :birthday, presence: true
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '半角英数を両方含む必要があります' }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: '半角英数を両方含む必要があります' }
 end
