@@ -3,7 +3,7 @@ FactoryBot.define do
     Faker::Config.locale = :ja
     nickname              { Faker::Name.initials(number: 2) }
     email                 { Faker::Internet.free_email }
-    password              { Faker::Internet.password(min_length: 6) }
+    password              { 'a1' + Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
     family_name           { Faker::Name.last_name }
     first_name            { Faker::Name.first_name }
