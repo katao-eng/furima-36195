@@ -15,8 +15,8 @@ class Item < ApplicationRecord
   validates :defrayer_id, presence: true
   validates :prefecture_id, presence: true
   validates :delivery_day_id, presence: true
-  validates :price, presence: true
   validates :image, presence: true
+  validates :price, presence: true, inclusion: { in: 300..9999999, message: '半角数字で300~99999999の範囲で入力してください' }
 
   validates :category_id, :condition_id, :defrayer_id, :prefecture_id, :delivery_day_id, numericality: { other_than: 1 , message: "can't be blank"}
 end
