@@ -7,7 +7,7 @@ FactoryBot.define do
     defrayer_id     { 2 }
     prefecture_id   { 2 }
     delivery_day_id { 2 }
-    price           { 19800 }
+    price           { 19_800 }
     association :user
 
     after(:build) do |item|
