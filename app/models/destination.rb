@@ -1,5 +1,7 @@
 class Destination < ApplicationRecord
   belongs_to :buy
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :prefecture
 
   with_options presence: true do
     validates :postal_code, format: {with: /\A\d{3}[-]\d{4}\z/, message: "3桁ハイフン4桁の半角数字で入力してください"}
