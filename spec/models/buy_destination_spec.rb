@@ -26,12 +26,12 @@ RSpec.describe BuyDestination, type: :model do
       it 'postal_codeに半角のハイフンがないと購入できない' do
         @buy_destination.postal_code = '1231234'
         @buy_destination.valid?
-        expect(@buy_destination.errors.full_messages).to include("Postal code 3桁ハイフン4桁の半角数字で入力してください")
+        expect(@buy_destination.errors.full_messages).to include('Postal code 3桁ハイフン4桁の半角数字で入力してください')
       end
       it 'postal_codeが半角数字でないと購入できない' do
         @buy_destination.postal_code = '１２３-１２３４'
         @buy_destination.valid?
-        expect(@buy_destination.errors.full_messages).to include("Postal code 3桁ハイフン4桁の半角数字で入力してください")
+        expect(@buy_destination.errors.full_messages).to include('Postal code 3桁ハイフン4桁の半角数字で入力してください')
       end
       it 'prefecture_idが選択されていないと購入できない' do
         @buy_destination.prefecture_id = ''
@@ -56,12 +56,12 @@ RSpec.describe BuyDestination, type: :model do
       it 'telにハイフンがあると購入できない' do
         @buy_destination.tel = '090-1111-1111'
         @buy_destination.valid?
-        expect(@buy_destination.errors.full_messages).to include("Tel ハイフンは入力せず、半角数字のみで入力してください")
+        expect(@buy_destination.errors.full_messages).to include('Tel ハイフンは入力せず、半角数字のみで入力してください')
       end
       it 'telが半角数字でないと購入できない' do
         @buy_destination.tel = '０９０１１１１１１１１'
         @buy_destination.valid?
-        expect(@buy_destination.errors.full_messages).to include("Tel ハイフンは入力せず、半角数字のみで入力してください")
+        expect(@buy_destination.errors.full_messages).to include('Tel ハイフンは入力せず、半角数字のみで入力してください')
       end
       it 'tokenがないと購入できない' do
         @buy_destination.token = nil
