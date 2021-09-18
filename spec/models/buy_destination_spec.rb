@@ -8,7 +8,7 @@ RSpec.describe BuyDestination, type: :model do
 
   describe '商品の購入' do
     context '商品の購入ができる場合' do
-      it 'postal_code, prefecture_id, municipalities, house_number, building_name, telがあれば購入できる' do
+      it 'postal_code, prefecture_id, municipalities, house_number, building_name, tel, tokenがあれば購入できる' do
         expect(@buy_destination).to be_valid
       end
       it 'building_nameは空でも購入できる' do
@@ -62,6 +62,11 @@ RSpec.describe BuyDestination, type: :model do
         @buy_destination.tel = '０９０１１１１１１１１'
         @buy_destination.valid?
         expect(@buy_destination.errors.full_messages).to include("Tel ハイフンは入力せず、半角数字のみで入力してください")
+      end
+      it 'tokenがないと購入できない' do
+        @buy_destination.token = nil
+        @buy_destination.valid?
+        expect(@buy_destination.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
