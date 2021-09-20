@@ -40,6 +40,6 @@ class BuysController < ApplicationController
   end
 
   def move_to_root_path
-    redirect_to root_path if @item.buy || current_user.id == @item.user_id
+    redirect_to root_path if @item.buy.present? || current_user.id == @item.user_id
   end
 end
