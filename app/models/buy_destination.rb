@@ -10,7 +10,7 @@ class BuyDestination
     validates :prefecture_id
     validates :municipalities
     validates :house_number
-    validates :tel, format: { with: /\A\d{10,11}\z/, message: 'ハイフンは入力せず、半角数字のみで入力してください' }
+    validates :tel, format: { with: /\A\d{10,11}\z/, message: 'ハイフンは入力せず、半角数字のみで入力してください（10桁〜11桁）' }
     validates :token
   end
 
