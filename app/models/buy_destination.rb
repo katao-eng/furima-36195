@@ -4,6 +4,8 @@ class BuyDestination
                 :token
 
   with_options presence: true do
+    validates :user_id
+    validates :item_id
     validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: '3桁ハイフン4桁の半角数字で入力してください' }
     validates :prefecture_id
     validates :municipalities
